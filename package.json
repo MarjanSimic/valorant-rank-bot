@@ -1,0 +1,21 @@
+{
+  "name": "currentrankbot",
+  "version": "1.0.0",
+  "description": "Automatic VALORANT rank updater for Discord.",
+  "main": "index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@discordjs/builders": "^0.6.0",
+    "@discordjs/rest": "^0.1.0-canary.0",
+    "@liamcottle/valorant.js": "^1.2.1",
+    "discord-api-types": "^0.23.1",
+    "discord.js": "^13.1.0",
+    "dotenv": "^10.0.0",
+    "node": "16.9.1",
+    "node-fetch": "^3.0.0"
+  }
+}

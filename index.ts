@@ -60,7 +60,7 @@ client.on('messageCreate', (message) => {
                 });
 
                 }).on('error', function(e){
-                    console.log("beep boop an error occured :/")
+                    message.reply("beep boop an error occured :/")
                 });
 
             }

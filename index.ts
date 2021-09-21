@@ -77,25 +77,37 @@ client.on('messageCreate', (message) => {
 
         if (tag.includes('#') && tag.length < 25) {
 
-            if (!message.guild!.roles.cache.find(r => r.name == tag)) {
-                message.guild!.roles.create({
-                    name: tag
-                }).then(() => {(
-                    message.member!.roles.cache.forEach(r => {
-                        if (r.name.includes('#')) {
-                            message.member!.roles.remove(r)
-                        }
-                    }),
-                    message.member!.roles.add(message.guild!.roles.cache.find(r => r.name === tag)!).catch(console.error)
-                )})
-            } else {
-                message.member!.roles.cache.forEach(r => {
-                    if (r.name.includes('#')) {
-                        message.member!.roles.remove(r)
+            var url = 'https://api.henrikdev.xyz/valorant/v1/mmr/eu/' + tag.replace('#', '/')
+
+            https.get(url, function(res){
+
+                if (res.statusCode != 404) {
+                    if (!message.guild!.roles.cache.find(r => r.name == tag)) {
+                        message.guild!.roles.create({
+                            name: tag
+                        }).then(() => {(
+                            message.member!.roles.cache.forEach(r => {
+                                if (r.name.includes('#')) {
+                                    message.member!.roles.remove(r)
+                                }
+                            }),
+                            message.member!.roles.add(message.guild!.roles.cache.find(r => r.name === tag)!).catch(console.error),
+                            message.reply("Tag updated!")
+                        )})
+                    } else {
+                        message.member!.roles.cache.forEach(r => {
+                            if (r.name.includes('#')) {
+                                message.member!.roles.remove(r)
+                            }
+                        })
+                        message.member!.roles.add(message.guild!.roles.cache.find(r => r.name === tag)!).catch(console.error)
+                        message.reply("Tag updated!")
                     }
-                })
-                message.member!.roles.add(message.guild!.roles.cache.find(r => r.name === tag)!).catch(console.error)
-            }
+                } else {
+                    message.reply("beep boop an error occured :/ (check if the tag is correct)")
+                }
+
+            })
 
         } else {
             message.reply("beep boop an error occured :/")

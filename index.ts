@@ -60,7 +60,7 @@ client.on('messageCreate', (message) => {
                 });
 
                 }).on('error', function(e){
-                    console.log("beep boop an error occured :/")
+                    message.reply("beep boop an error occured :/")
                 });
 
             }
@@ -68,7 +68,7 @@ client.on('messageCreate', (message) => {
         })
 
         if (!tagExists) {
-            console.log("beep boop an error occured :/ (check if you set your valorant tag corrently)")
+            message.reply("beep boop an error occured :/ (check if you set your valorant tag corrently)")
         }
 
     } else if (message.content.startsWith('!tag ')) {
@@ -98,7 +98,7 @@ client.on('messageCreate', (message) => {
             }
 
         } else {
-            console.log("beep boop an error occured :/")
+            message.reply("beep boop an error occured :/")
         }
 
     }

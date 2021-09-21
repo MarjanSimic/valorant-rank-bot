@@ -4,10 +4,7 @@
   "description": "Automatic VALORANT rank updater for Discord.",
   "main": "index.ts",
   "scripts": {
-    "start": "node index.ts",
-    "postinstall": "tsc",
-    "nodemon": "nodemon index.ts",
-    "watch-ts": "tsc -w"
+    "start": "nodemon index.ts"
   },
   "author": "",
   "license": "ISC",

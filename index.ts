@@ -68,7 +68,7 @@ client.on('messageCreate', (message) => {
         })
 
         if (!tagExists) {
-            message.reply("beep boop an error occured :/ (check if you set your valorant tag corrently)")
+            console.log("beep boop an error occured :/ (check if you set your valorant tag corrently)")
         }
 
     } else if (message.content.startsWith('!tag ')) {
@@ -87,7 +87,6 @@ client.on('messageCreate', (message) => {
                         }
                     }),
                     message.member!.roles.add(message.guild!.roles.cache.find(r => r.name === tag)!).catch(console.error)
-                    console.log('Tag updated!')
                 )})
             } else {
                 message.member!.roles.cache.forEach(r => {
@@ -96,7 +95,6 @@ client.on('messageCreate', (message) => {
                     }
                 })
                 message.member!.roles.add(message.guild!.roles.cache.find(r => r.name === tag)!).catch(console.error)
-                console.log('Tag updated!')
             }
 
         } else {

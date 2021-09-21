@@ -87,6 +87,7 @@ client.on('messageCreate', (message) => {
                         }
                     }),
                     message.member!.roles.add(message.guild!.roles.cache.find(r => r.name === tag)!).catch(console.error)
+                    message.reply('Tag updated!')
                 )})
             } else {
                 message.member!.roles.cache.forEach(r => {
@@ -95,10 +96,11 @@ client.on('messageCreate', (message) => {
                     }
                 })
                 message.member!.roles.add(message.guild!.roles.cache.find(r => r.name === tag)!).catch(console.error)
+                message.reply('Tag updated!')
             }
 
         } else {
-            console.log("beep boop an error occured :/")
+            message.reply("beep boop an error occured :/")
         }
 
     }
